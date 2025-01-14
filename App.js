@@ -12,8 +12,8 @@ const App = () => {
 
   useEffect(() => {
     // Initialize the socket connection
-    // const socketInstance = io('http://localhost:3001'); 
-    const socketInstance = io('http://192.168.130.6:3001');
+      const socketInstance = io('http://192.168.130.6:3001');
+    //  const socketInstance = io('http://127.0.0.0:3001');
     setSocket(socketInstance);
 
     // Listen for incoming messages
