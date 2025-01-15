@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput,StyleSheet, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
 import io from 'socket.io-client';
 
 const App = () => {
@@ -12,8 +12,10 @@ const App = () => {
 
   useEffect(() => {
     // Initialize the socket connection
-      const socketInstance = io('http://192.168.130.6:3001');
+    const socketInstance = io('https://chat-backend-5uwe.onrender.com'); 
+      //const socketInstance = io('http://192.168.130.6:3001');
     //  const socketInstance = io('http://127.0.0.0:3001');
+
     setSocket(socketInstance);
 
     // Listen for incoming messages
@@ -88,13 +90,11 @@ const App = () => {
             value={message}
             onChangeText={setMessage}
           />
-
-            <TouchableOpacity onPress={handleSendMessage}  
+          <TouchableOpacity onPress={handleSendMessage}  
             style={styles.touchablebtn}>
             <Text 
             style = {styles.touchabletext}>Send</Text>
           </TouchableOpacity>
-
         </View>
       )}
     </SafeAreaView>
@@ -172,8 +172,6 @@ const styles = StyleSheet.create({
        backgroundColor:'#06d482' , 
         paddingVertical:2, paddingVertical:4,borderRadius:12,marginVertical:18
       }
-  
-  
 });
 
 export default App;
